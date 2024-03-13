@@ -9,11 +9,14 @@ export default function Portfolio() {
         <h2 className="text-work_heading dark:text-work_heading_dark mb-8 font-semibold">
           My Projects
         </h2>
-        <div className="grid grid-cols-3 gap-4">
-          {projects.map((project) => (
+        <div className="grid md:grid-cols-2 gap-8 md:gap-4">
+          {projects.map((project, index) => (
             <div
               key={project.id}
-              className="flex flex-col bg-card dark:bg-card_dark shadow-md rounded-sm"
+              className={
+                "flex flex-col bg-card dark:bg-card_dark shadow-md rounded-sm project " +
+                ((index + 1) % 2 === 0 ? "md:mt-12" : "md:mb-12")
+              }
             >
               <h2 className="text-lg text-card_header dark:text-card_header_dark p-4">
                 {project.title}

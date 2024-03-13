@@ -4,9 +4,11 @@ import Link from "next/link";
 import Container from "./Container";
 import { v4 as uuidV4 } from "uuid";
 import { usePathname } from "next/navigation";
-import { AtSign } from "react-feather";
+import { AtSign, Moon, Sun } from "react-feather";
+import Nav from "./Nav";
+import { useState } from "react";
 
-const links = [
+export const links = [
   {
     id: uuidV4(),
     name: "home",
@@ -29,22 +31,39 @@ const links = [
   },
 ];
 
-export default function Header() {
-  const pathname = usePathname();
+type Props = {
+  theme: string;
+  action: (theme: "light" | "dark") => void;
+};
 
-  console.log(pathname);
+export default function Header({ theme, action }: Props) {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+
+  const toggleNav = () => setOpen((prev) => !prev);
+  const closeNav = () => setOpen(false);
+
   return (
     <header>
       <Container className="flex items-center justify-between py-8">
         <a
           href="mailto:benedictumeozor@gmail.com"
-          className="flex items-center gap-1 text-highlight dark:text-highlight_dark hover:text-paragraph dark:hover:text-paragraph_dark"
+          className="flex items-center gap-1 z-10 text-highlight dark:text-highlight_dark hover:text-paragraph dark:hover:text-paragraph_dark"
         >
           <AtSign className="w-4" />
-          benedictumeozor@gmail.com
+          <span className="hidden md:block">benedictumeozor@gmail.com</span>
+          <span className="md:hidden">Benedict</span>
         </a>
 
-        <nav>
+        <button
+          className={"md:hidden menu-bar " + (open ? "opened" : "")}
+          onClick={toggleNav}
+        >
+          <div className="line-one"></div>
+          <div className="line-two"></div>
+        </button>
+
+        <nav className="hidden md:block">
           <ul className="flex items-center gap-8">
             {links.map((link) => (
               <li key={link.id}>
@@ -61,9 +80,19 @@ export default function Header() {
                 </Link>
               </li>
             ))}
+            {theme && (
+              <li>
+                {theme === "dark" ? (
+                  <Sun className="w-4" onClick={() => action("light")} />
+                ) : (
+                  <Moon className="w-4" onClick={() => action("dark")} />
+                )}
+              </li>
+            )}
           </ul>
         </nav>
       </Container>
+      {open && <Nav action={closeNav} />}
     </header>
   );
 }

@@ -8,10 +8,12 @@
   font-size: 16px;
   scroll-behavior: smooth;
   --active-color: #151515;
+  --cursor-color: #555;
 }
 
 :root.dark {
   --active-color: white;
+  --cursor-color: #ccc;
 }
 
 * {
@@ -26,11 +28,12 @@ img {
   display: block;
 }
 
-a, button {
+a,
+button {
   transition: all 0.3s ease;
 }
 
-body {
+div.body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100lvh;
@@ -39,4 +42,130 @@ body {
 
 .icons a svg {
   fill: var(--active-color);
+}
+
+.icons a svg.at-sign {
+  fill: none;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.icons a {
+  animation: bounce 1s ease infinite;
+}
+
+.icons a:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.icons a:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.icons a:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.icons a:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.icons a:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.menu-bar {
+  outline: none;
+  border: none;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+  gap: 0.75rem;
+  cursor: pointer;
+  z-index: 9;
+}
+
+.menu-bar.opened {
+  min-height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-bar .line-one {
+  height: 1px;
+  width: 40px;
+  background: var(--active-color);
+}
+
+.menu-bar .line-two {
+  height: 1px;
+  width: 25px;
+  background: var(--active-color);
+}
+
+.menu-bar.opened .line-one {
+  width: 25px !important;
+  transform: rotate(45deg) translateY(8px) !important;
+  position: relative !important;
+  top: 1px !important;
+  transition: transform 300ms linear !important;
+}
+
+.menu-bar.opened .line-two {
+  width: 25px !important;
+  transform: rotate(-45deg) translateY(-8px) !important;
+  transition: transform 300ms linear !important;
+}
+
+nav.mobile-nav {
+  animation: fadeIn 300ms linear 1;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes dance {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+ }
+  40% {
+    transform: translateY(-30px);
+ }
+  60% {
+    transform: translateY(-15px);
+ }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+ }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-10px);
+ }
+  20%, 40%, 60%, 80% {
+    transform: translateX(10px);
+ }
 }
