@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Container from "@/components/Container";
 import { AtSign, Facebook, GitHub, Linkedin, Twitter } from "react-feather";
+import PageLink from "./components/PageLink";
 
 export const metadata: Metadata = {
   title: "Benedict Umeozor | Home",
@@ -40,36 +41,21 @@ export default function Home() {
             </span>
           </p>
           <div className="icons flex items-center max-md:justify-center gap-4 mt-8">
-            <a href="" target="_blank" rel="noopener noreferer" title="twitter">
+            <PageLink href="" title="twitter">
               <Twitter className="w-4" />
-            </a>
-            <a
-              href=""
-              target="_blank"
-              rel="noopener noreferer"
-              title="facebook"
-            >
+            </PageLink>
+            <PageLink href="" title="facebook">
               <Facebook className="w-4" />
-            </a>
-            <a
-              href=""
-              target="_blank"
-              rel="noopener noreferer"
-              title="linkedin"
-            >
+            </PageLink>
+            <PageLink href="" title="linkedin">
               <Linkedin className="w-4" />
-            </a>
-            <a href="" target="_blank" rel="noopener noreferer" title="github">
+            </PageLink>
+            <PageLink href="" title="github">
               <GitHub className="w-4" />
-            </a>
-            <a
-              href="mailto:benedictumeozor@gmail.com"
-              target="_blank"
-              rel="noopener noreferer"
-              title="email"
-            >
+            </PageLink>
+            <PageLink href="mailto:benedictumeozor@gmail.com" title="email">
               <AtSign className="w-4 at-sign" />
-            </a>
+            </PageLink>
           </div>
         </div>
       </Container>
