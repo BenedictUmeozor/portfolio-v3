@@ -72,7 +72,7 @@ export default function RootLayout({
           {theme && <MouseTracker theme={theme} />}
           <div className="body">
             <Header action={changeTheme} theme={theme!} />
-            <main>{children}</main>
+            <main className="pb-4">{children}</main>
             <Footer />
           </div>
         </MousePositionProvider>

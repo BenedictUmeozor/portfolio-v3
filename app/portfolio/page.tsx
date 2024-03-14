@@ -7,7 +7,7 @@ export default function Portfolio() {
     <div>
       <Container>
         <h2 className="text-work_heading dark:text-work_heading_dark mb-8 font-semibold">
-          My Projects
+          MY PROJECTS
         </h2>
         <div className="grid md:grid-cols-2 gap-8 md:gap-4">
           {projects.map((project, index) => (

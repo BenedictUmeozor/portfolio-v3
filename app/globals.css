@@ -40,7 +40,7 @@ div.body {
   min-height: 100vh;
 }
 
-.icons a svg {
+.icons a svg, .fill {
   fill: var(--active-color);
 }
 
