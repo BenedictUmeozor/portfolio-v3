@@ -41,16 +41,22 @@ export default function Home() {
             </span>
           </p>
           <div className="icons flex items-center max-md:justify-center gap-4 mt-8">
-            <PageLink href="" title="twitter">
+            <PageLink
+              href="https://www.twitter.com/dev_benedict"
+              title="twitter"
+            >
               <Twitter className="w-4" />
             </PageLink>
             <PageLink href="" title="facebook">
               <Facebook className="w-4" />
             </PageLink>
-            <PageLink href="" title="linkedin">
+            <PageLink
+              href="https://www.linkedin.com/in/benedict-umeozor-014b70228/"
+              title="linkedin"
+            >
               <Linkedin className="w-4" />
             </PageLink>
-            <PageLink href="" title="github">
+            <PageLink href="https://github.com/BenedictUmeozor" title="github">
               <GitHub className="w-4" />
             </PageLink>
             <PageLink href="mailto:benedictumeozor@gmail.com" title="email">

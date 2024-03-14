@@ -18,9 +18,20 @@ export default function Portfolio() {
                 ((index + 1) % 2 === 0 ? "md:mt-12" : "md:mb-12")
               }
             >
-              <h2 className="text-lg text-card_header dark:text-card_header_dark p-4">
-                {project.title}
-              </h2>
+              {project.liveUrl ? (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferer"
+                  className="text-lg text-card_header dark:text-card_header_dark p-4 hover:underline"
+                >
+                  {project.title}
+                </a>
+              ) : (
+                <h2 className="text-lg text-card_header dark:text-card_header_dark p-4">
+                  {project.title}
+                </h2>
+              )}
               <p className="flex-grow text-[0.9rem] text-card_description dark:caret-card_description_dark p-4">
                 {project.description}
               </p>

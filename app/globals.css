@@ -33,6 +33,19 @@ button {
   transition: all 0.3s ease;
 }
 
+input,
+textarea {
+  appearance: none;
+  border: none;
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border: none;
+  outline: none;
+}
+
 div.body {
   display: grid;
   grid-template-rows: auto 1fr auto;

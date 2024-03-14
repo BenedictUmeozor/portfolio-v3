@@ -48,12 +48,20 @@ export default function Header({ theme, action }: Props) {
       <Container className="flex items-center justify-between py-8">
         <a
           href="mailto:benedictumeozor@gmail.com"
-          className="flex items-center gap-1 z-10 text-highlight dark:text-highlight_dark hover:text-paragraph dark:hover:text-paragraph_dark"
+          className="hidden md:flex items-center gap-1 z-10 text-highlight dark:text-highlight_dark hover:text-paragraph dark:hover:text-paragraph_dark"
         >
           <AtSign className="w-4" />
-          <span className="hidden md:block">benedictumeozor@gmail.com</span>
-          <span className="md:hidden">Benedict</span>
+          <span className="block">benedictumeozor@gmail.com</span>
         </a>
+
+        <Link
+          href="/"
+          className="md:hidden flex items-center gap-1 z-10 text-highlight dark:text-highlight_dark hover:text-paragraph dark:hover:text-paragraph_dark"
+        >
+          <AtSign className="w-4" />
+
+          <span>Benedict</span>
+        </Link>
 
         <button
           className={"md:hidden menu-bar " + (open ? "opened" : "")}

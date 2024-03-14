@@ -1,7 +1,7 @@
 import Container from "@/components/Container";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CheckCircle, Download, Linkedin } from "react-feather";
+import { Download, Linkedin } from "react-feather";
 
 export const metadata: Metadata = {
   title: "Benedict Umeozor | Resume",
@@ -41,7 +41,7 @@ export default function Resume() {
             <h2 className="text-2xl font-bold">Benedict Umeozor</h2>
             <div className="flex items-center gap-2">
               <a
-                href=""
+                href="https://www.linkedin.com/in/benedict-umeozor-014b70228/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 text-xs"
