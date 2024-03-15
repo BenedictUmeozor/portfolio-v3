@@ -20,18 +20,22 @@ export default function RootLayout({
   const [theme, setTheme] = useState(getTheme());
 
   const changeTheme = (userTheme: "light" | "dark") => {
-    localStorage.setItem("theme", JSON.stringify(userTheme));
-    document.documentElement.className = userTheme;
-    setTheme(userTheme);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("theme", JSON.stringify(userTheme));
+      document.documentElement.className = userTheme;
+      setTheme(userTheme);
+    }
   };
 
   useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.className = "dark";
-    } else {
-      document.documentElement.className = "light";
+    if (typeof window !== "undefined") {
+      if (theme === "dark") {
+        document.documentElement.className = "dark";
+      } else {
+        document.documentElement.className = "light";
+      }
+      localStorage.setItem("theme", JSON.stringify(theme));
     }
-    localStorage.setItem("theme", JSON.stringify(theme));
   }, [theme]);
 
   const style = {
