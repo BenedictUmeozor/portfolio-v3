@@ -1,4 +1,3 @@
-"use client";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -7,8 +6,6 @@ import image from "@/assets/boy1.jpeg";
 import AnimatedCursor from "react-animated-cursor";
 import { MousePositionProvider } from "@/contexts/MousePosition";
 import MouseTracker from "@/components/MouseTracker";
-import { useEffect, useState } from "react";
-import { getTheme } from "@/utils/function";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,27 +14,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [theme, setTheme] = useState(getTheme());
-
-  const changeTheme = (userTheme: "light" | "dark") => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("theme", JSON.stringify(userTheme));
-      document.documentElement.className = userTheme;
-      setTheme(userTheme);
-    }
-  };
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      if (theme === "dark") {
-        document.documentElement.className = "dark";
-      } else {
-        document.documentElement.className = "light";
-      }
-      localStorage.setItem("theme", JSON.stringify(theme));
-    }
-  }, [theme]);
-
   const style = {
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(${image.src})`,
     backgroundSize: "cover",
@@ -57,7 +33,7 @@ export default function RootLayout({
           inter.className +
           " bg-body dark:bg-body_dark text-text dark:text-text_dark"
         }
-        style={theme === "dark" ? style : { zIndex: 1 }}
+        style={style}
       >
         <MousePositionProvider>
           <AnimatedCursor
@@ -73,9 +49,9 @@ export default function RootLayout({
               border: "1px solid var(--cursor-color)",
             }}
           />
-          {theme && <MouseTracker theme={theme} />}
+          <MouseTracker />
           <div className="body">
-            <Header action={changeTheme} theme={theme!} />
+            <Header />
             <main className="pb-4">{children}</main>
             <Footer />
           </div>

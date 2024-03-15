@@ -2,11 +2,7 @@
 
 import { useMousePosition } from "@/contexts/MousePosition";
 
-type Props = {
-  theme: string;
-};
-
-export default function MouseTracker({ theme }: Props) {
+export default function MouseTracker() {
   const { x, y } = useMousePosition();
 
   const style: React.CSSProperties = {
@@ -20,5 +16,5 @@ export default function MouseTracker({ theme }: Props) {
     pointerEvents: "none",
   };
 
-  return <div style={theme === "dark" ? style : {}} />;
+  return <div style={style} />;
 }

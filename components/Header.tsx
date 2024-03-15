@@ -31,12 +31,7 @@ export const links = [
   },
 ];
 
-type Props = {
-  theme: string;
-  action: (theme: "light" | "dark") => void;
-};
-
-export default function Header({ theme, action }: Props) {
+export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -88,15 +83,6 @@ export default function Header({ theme, action }: Props) {
                 </Link>
               </li>
             ))}
-            {theme && (
-              <li>
-                {theme === "dark" ? (
-                  <Sun className="w-4" onClick={() => action("light")} />
-                ) : (
-                  <Moon className="w-4" onClick={() => action("dark")} />
-                )}
-              </li>
-            )}
           </ul>
         </nav>
       </Container>
