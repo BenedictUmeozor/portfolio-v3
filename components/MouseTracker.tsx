@@ -16,5 +16,5 @@ export default function MouseTracker() {
     pointerEvents: "none",
   };
 
-  return <div style={style} />;
+  return <div style={style} className="max-md:hidden" />;
 }
