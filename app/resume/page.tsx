@@ -140,6 +140,20 @@ export default function Resume() {
             </p>
           </div>
         </div>
+        <div className="md:hidden flex items-center justify-center gap-4 mt-8">
+          <Link
+            href="/portfolio"
+            className="text-[0.9rem] bg-btn dark:bg-btn_dark px-4 py-2 rounded text-paragraph dark:text-paragraph_dark hover:scale-95"
+          >
+            Portfolio
+          </Link>
+          <Link
+            href="/contact"
+            className="text-[0.9rem] bg-btn dark:bg-btn_dark px-4 py-2 rounded text-paragraph dark:text-paragraph_dark hover:scale-95"
+          >
+            Contact
+          </Link>
+        </div>
       </Container>
     </section>
   );
