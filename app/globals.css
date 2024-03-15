@@ -112,7 +112,7 @@ div.body {
   position: relative;
   gap: 0.75rem;
   cursor: pointer;
-  z-index: 9;
+  z-index: 10;
 }
 
 .menu-bar.opened {
