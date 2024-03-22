@@ -5,7 +5,7 @@ import Container from "./Container";
 export default function Footer() {
   return (
     <footer>
-      <Container className="flex flex-col items-center justify-between gap-8 py-3">
+      <Container className="flex flex-col items-center justify-between gap-8 py-4">
         {/* <div className="flex items-center justify-start gap-4">
           <a
             href="https://www.twitter.com/dev_benedict"
