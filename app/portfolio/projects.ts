@@ -15,7 +15,7 @@ export const projects: Project[] = [
     title: "Movie Empire",
     description:
       "Experience the ultimate movie discovery journey with our app! Seamlessly search through a vast library of films, from blockbusters to hidden gems. Find your next cinematic adventure with ease, right at your fingertips.",
-    liveUrl: "https://movie-empire.vercel.app/",
+    liveUrl: "https://movie-empire-4kcvacnol-benedictumeozor.vercel.app/",
     codeRepository: "https://github.com/BenedictUmeozor/Movie-Empire",
     tools: ["Next.js", "TypeScript", "TailwindCSS"],
   },
